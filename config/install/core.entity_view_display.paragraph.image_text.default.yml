@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image_text.image
+    - field.field.paragraph.image_text.text
+    - paragraphs.paragraphs_type.image_text
+  module:
+    - image
+    - text
+id: paragraph.image_text.default
+targetEntityType: paragraph
+bundle: image_text
+mode: default
+content:
+  image:
+    type: image
+    weight: 0
+    settings:
+      image_style: '' 
+      image_link: ''
+    third_party_settings: {  }
+    label: hidden
+  text:
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  created: true
+  uid: true

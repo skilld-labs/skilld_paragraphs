@@ -1,0 +1,10 @@
+name: Skilld Paragraphs
+description: 'Provides an initial paragraphs types'
+type: module
+core: 8.x
+dependencies:
+  - drupal:image
+  - drupal:node
+  - drupal:text
+  - paragraphs:paragraphs
+package: Paragraphs

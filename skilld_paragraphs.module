@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Contains skilld_paragraphs module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_help().
+ */
+function skilld_paragraphs_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Help for the  module.
+    case 'help.page.skilld_paragraphs':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The Skilld Paragraphs module provides several <em>paragraphs types</em> for the <a href=":paragraphs">Skilld Paragraphs</a>, but no separate user interface. For more information, see the <a href=":online">online documentation for the Paragraphs module</a>.', [
+        ':online' => 'https://www.drupal.org/node/2444881',
+        ':paragraphs' => Url::fromRoute('help.page', ['name' => 'paragraphs'])
+          ->toString(),
+      ]) . '</p>';
+      $output .= '<h3>' . t('Uses') . '</h3>';
+      $output .= '<dt>' . t('Changing paragraphs types') . '</dt>';
+      $output .= '<dd>' . t('Administrators can edit the provided <em>paragraphs types</em> on the <a href=":paragraphs">Paragraphs types page</a> if the <a href=":field_ui">Field UI</a> module is enabled. For more information on fields and entities, see the <a href=":field">Field module help page</a>.', [
+        ':paragraphs' => Url::fromRoute('entity.paragraphs_type.collection')
+          ->toString(),
+        ':field' => Url::fromRoute('help.page', ['name' => 'field'])
+          ->toString(),
+        ':field_ui' => (\Drupal::moduleHandler()
+          ->moduleExists('field_ui')) ? Url::fromRoute('help.page', ['name' => 'field_ui'])
+          ->toString() : '#',
+      ]) . '</dd>';
+      return $output;
+  }
+}

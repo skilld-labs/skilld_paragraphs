@@ -1,0 +1,13 @@
+{
+  "name": "skilld/skilld_paragraphs",
+  "description": "Provides several paragraphs types.",
+  "type": "drupal-module",
+  "license": "MIT",
+  "require": {
+    "drupal/core": "~8",
+    "drupal/paragraphs": "^1"
+  },
+  "suggest": {
+    "drupal/default_content": "Recommended to import sample content"
+  }
+}
